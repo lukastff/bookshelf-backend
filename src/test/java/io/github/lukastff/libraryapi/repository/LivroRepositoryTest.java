@@ -31,7 +31,7 @@ class LivroRepositoryTest {
         livro.setTitulo("Culpa das Estrelas");
         livro.setDataPublicacao(LocalDate.of(1900, 1, 1));
 
-        Autor autor = autorRepository.findById(UUID.fromString("a3088c13-862d-4b07-a8f1-5307281373dd")).orElse(null);
+        Autor autor = autorRepository.findById(UUID.fromString("24ddad8f-99b7-4cb1-8ee5-0cde3c7f5643")).orElse(null);
 
         livro.setAutor(autor);
 
