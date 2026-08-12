@@ -1,6 +1,7 @@
 package io.github.lukastff.libraryapi.controller;
 
 import io.github.lukastff.libraryapi.controller.dto.AutorDTO;
+import io.github.lukastff.libraryapi.controller.dto.ErroResposta;
 import io.github.lukastff.libraryapi.model.Autor;
 import io.github.lukastff.libraryapi.service.AutorService;
 import org.springframework.http.HttpStatus;
