@@ -2,6 +2,7 @@ package io.github.lukastff.libraryapi.service;
 
 import io.github.lukastff.libraryapi.model.Autor;
 import io.github.lukastff.libraryapi.repository.AutorRepository;
+import io.github.lukastff.libraryapi.validator.AutorValidator;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,12 +13,15 @@ import java.util.UUID;
 public class AutorService {
 
     private final AutorRepository repository;
+    private final AutorValidator validator;
 
-    public AutorService(AutorRepository repository) {
+    public AutorService(AutorRepository repository, AutorValidator validator) {
         this.repository = repository;
+        this.validator = validator;
     }
 
     public Autor salvar(Autor autor) {
+        validator.validar(autor);
         return repository.save(autor);
     }
 
@@ -26,6 +30,7 @@ public class AutorService {
             throw new IllegalArgumentException("Para atualizar, é necessario que o autor já esteja cadastrado!");
         }
 
+        validator.validar(autor);
         repository.save(autor);
     }
 
